@@ -28,7 +28,7 @@ class Recommend extends Component {
 
     getData()
       .then(res => {
-        console.log(res.data.newItemList);
+        // console.log(res.data.newItemList);
         this.setState({
           policyDescList: res.data.policyDescList,
           kingKongList: res.data.kingKongModule.kingKongList,
@@ -90,22 +90,6 @@ class Recommend extends Component {
       </>
     )
   }
-  renderNewItemList = () => {
-    const { newItemList } = this.state;
-    return (
-      <>
-        {
-          newItemList.map((item, index) => {
-            return (
-              <div >
-                
-              </div>
-            )
-          })
-        }
-      </>
-    )
-  }
   renderGoodGrid = () => {
     const { newItemList } = this.state;
     return (
@@ -114,7 +98,9 @@ class Recommend extends Component {
           newItemList.map((item, index) => {
             return (
               <div className="list" key={index}>
-                <img src={item.listPicUrl} alt=""/>
+                <div className="hd">
+                  <img src={item.listPicUrl} alt="" />
+                </div>
                 <div className="name">
                   <span>{item.name}</span>
                   <span className="dynamicPrice">
@@ -125,7 +111,7 @@ class Recommend extends Component {
                     </span>
                   </span>
                 </div>
-                <div className="tagWraper" display={item.promTag ? '' : 'none'} >
+                <div className="tagWraper" style={{display: (item.promTag === undefined) ? 'none' : ''}} >
                   <p className="status">{item.promTag}</p>
                 </div>
               </div>
@@ -169,9 +155,10 @@ class Recommend extends Component {
                 </div>
               </div>
             </div>
+            <div className="blank"></div>
           </div>
+          {/* <Route path={`${match.url}/:id`} component={Album} /> */}
         </Scroll>
-        {/* <Route path={`${match.url}/:id`} component={Album} /> */}
       </div>
     );
   }
