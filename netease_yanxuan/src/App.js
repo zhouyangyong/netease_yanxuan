@@ -4,8 +4,9 @@ import Index from './components/index/Index';
 import Cate from './components/cate/Cate';
 import Topic from './components/topic/Topic';
 import Cart from './components/cart/Cart';
+import Search from './components/search/Search'
 import Mine from './components/mine/Mine';
-import * as tabIcon from './assets/indexImg/indeximg';
+import * as tabIcon from './assets/img/indexImg';
 import './App.styl';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
               <Route path="/Topic" component={Topic} />
               <Route path="/cart" component={Cart} />
               <Route path="/mine" component={Mine} />
+              <Route path="/search" component={Search} />
               <Redirect from="/" to="/index" />
             </Switch>
           </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Swiper from 'swiper/dist/js/swiper.js';
 import Scroll from '../../common/scroll/Scroll';
 import 'swiper/dist/css/swiper.min.css';
-import { swiperList } from '../../assets/indexImg/swiperList';
+import { swiperList } from '../../assets/img/swiperList';
 import { getData } from '../../api/index';
 import './styl/recommend.styl';
 
@@ -14,7 +14,7 @@ class Recommend extends Component {
     refreshScroll: false
   }
   componentDidMount() {
-    var mySwiper = new Swiper('.slider-container', {
+    new Swiper('.slider-container', {
       autoplay: {
         delay: 2000,
         stopOnLastSlide: false,

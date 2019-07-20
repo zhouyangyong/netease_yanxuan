@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 import Recommend from './Recommend';
 import Life from './Life';
 import Clothe from './Clothe';
@@ -9,7 +9,8 @@ import Mombaby from './Mombaby';
 import Sport from './Sport';
 import Digital from './Digital';
 import Global from './Global';
-import Header from '../../common/header/Header';
+import SearchBox from '../../common/searchBox/SearchBox';
+import logo from '../../assets/logo.png'
 import './styl/index.styl';
 
 class Index extends Component {
@@ -23,10 +24,19 @@ class Index extends Component {
     })
   }
   render() {
+    console.log(this.props);
     const { show } = this.state;
     return (
       <div className="indexPage">
-        <Header></Header>
+        <div className="header">
+          <div className="line">
+            <img className="logo" src={logo} alt="" />
+            <div className="search-box">
+                <SearchBox></SearchBox>
+            </div>
+            <div className="login-btn">登录</div>
+          </div>   
+        </div>
         <div className="item-wrapper">
           <div className="tabs">
             <NavLink className="nav-link" to="/index/recommend">
@@ -65,7 +75,7 @@ class Index extends Component {
             </div>
           </div>
         </div>
-        <div className="mask" style={{ display: show ? '' : 'none' }}></div>
+        <div className="mask" onClick={this.toggleWarp} style={{ display: show ? '' : 'none' }}></div>
         <div className="header-tab-view">
           <Switch>
             <Route path="/index/recommend" component={Recommend} />

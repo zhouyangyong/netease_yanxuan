@@ -112,6 +112,7 @@ class Cate extends Component {
             </Scroll>
           </div>
         </div>
+        <div className="blank"></div>
       </div>
     );
   }
