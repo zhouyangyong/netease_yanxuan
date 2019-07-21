@@ -39,7 +39,6 @@ class Mine extends Component {
       <>
         {
           assetList.map((item, index) => {
-            console.log(item.unit);
             return (
               <div className="assetItem" key={index}>
                 <div className="assetCount">
@@ -61,7 +60,7 @@ class Mine extends Component {
         {
           menu.map((item, index) => {
             return (
-              <div className="item">
+              <div className="item" key={index}>
                 <div className="menuItem">
                   <img src={item.pic} alt=""/>
                   <span className="text">{item.text}</span>

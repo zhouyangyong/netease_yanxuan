@@ -24,7 +24,6 @@ class Index extends Component {
     })
   }
   render() {
-    console.log(this.props);
     const { show } = this.state;
     return (
       <div className="indexPage">
@@ -90,6 +89,7 @@ class Index extends Component {
             <Redirect from="/index" to="/index/recommend" />
           </Switch>
         </div>
+        <div className="blank"></div>
       </div>
     );
   }

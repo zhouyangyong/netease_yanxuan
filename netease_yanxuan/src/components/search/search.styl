@@ -3,20 +3,26 @@
   height 1000px
   position relative
   background #ffffff
-  z-index 1400
+  z-index 1
   .topBar
     width 100%
+    display flex
+    align-items center
+    justify-content space-around
     background-color #fff
     height 44px
     padding 0 15px
+    box-sizing border-box
     .input-box
+      flex 1
       width 100%
       height 28px
+      position relative
       background-color #ededed
+      padding 0 10px
       border-radius 4px
       display flex
       align-items center
-      justify-content center
       .icon-search
         width 14px
         height 14px
@@ -26,10 +32,23 @@
         background-image url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-553dba3aff.png)
         background-repeat no-repeat
         background-size 100% 100%
-      .placeholder
+      .input
         color #666666
         border none
         outline none
         background-color transparent
         font-size 14px
+      .clearIpt
+        width 25px
+        height 25px
+        position absolute
+        right 10px
+        background-image url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/clearIpt-0821f71561.png)
+        background-size 100%
+        background-repeat no-repeat
+        vertical-align middle
+    .cancel
+      color #333333
+      margin-left 15px
+      font-size 14px
     
