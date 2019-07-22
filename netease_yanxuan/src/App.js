@@ -4,8 +4,9 @@ import Index from './components/index/Index';
 import Cate from './components/cate/Cate';
 import Topic from './components/topic/Topic';
 import Cart from './components/cart/Cart';
-import Search from './components/search/Search'
 import Mine from './components/mine/Mine';
+import Search from './container/Search';
+import Detail from './components/detail/Detail';
 import * as tabIcon from './assets/img/indexImg';
 import './App.styl';
 
@@ -66,10 +67,11 @@ class App extends Component {
               <Switch>
                 <Route path="/index" component={Index} />
                 <Route path="/cate" component={Cate} />
-                <Route path="/Topic" component={Topic} />
+                <Route path="/topic" component={Topic} />
                 <Route path="/cart" component={Cart} />
                 <Route path="/mine" component={Mine} />
                 <Route path="/search" component={Search} />
+                <Route path="/detail/:id" component={Detail} />
                 <Redirect from="/" to="/index" />
               </Switch>
             </div>
@@ -77,6 +79,7 @@ class App extends Component {
               {
                 tabData.map((item, index) => {
                   return (
+                    // style={{color: this.state.selectTab === item.key?'#b4282d':''}}
                     <div className="tab-item" key={index}>
                       <NavLink className="nav-link" to={item.path} onClick={() => this.changeTab(item.key)}>
                         <div className="item">
@@ -96,6 +99,7 @@ class App extends Component {
               }
             </div>
           </div>
+          
         </div>
       </Router>
     );

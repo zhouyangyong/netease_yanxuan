@@ -90,6 +90,13 @@ class Recommend extends Component {
       </>
     )
   }
+  toToGoodDetail = (id) => {
+    return () => {
+      this.props.history.push({
+        pathname: `/detail/${id}`
+      })
+    }
+  }
   renderGoodGrid = () => {
     const { newItemList } = this.state;
     return (
@@ -97,7 +104,7 @@ class Recommend extends Component {
         {
           newItemList.map((item, index) => {
             return (
-              <div className="list" key={index}>
+              <div className="list" key={index} onClick={this.toToGoodDetail(item.id)}>
                 <div className="hd">
                   <img src={item.listPicUrl} alt="" />
                 </div>
@@ -111,7 +118,7 @@ class Recommend extends Component {
                     </span>
                   </span>
                 </div>
-                <div className="tagWraper" style={{display: (item.promTag === undefined) ? 'none' : ''}} >
+                <div className="tagWraper" style={{ display: (item.promTag === undefined) ? 'none' : '' }} >
                   <p className="status">{item.promTag}</p>
                 </div>
               </div>

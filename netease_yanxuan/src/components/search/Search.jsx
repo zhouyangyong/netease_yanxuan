@@ -18,10 +18,19 @@ class Search extends Component {
     })
   }
   handleBack = () => {
-    this.props.history.goBack()
+    this.props.history.go(-1);
   }
+  // addSearchHistory = () => {
+  //   if (this.refs.ipt.value) {
+  //     let val = this.refs.ipt.value;
+  //     this.props.addSearchHistory({
+  //       val
+  //     })
+  //   }
+  // }
   render() {
     const { inputVal } = this.state;
+    console.log(this.props);
     return (
       <div className="searchPage">
         <div className="topBar">

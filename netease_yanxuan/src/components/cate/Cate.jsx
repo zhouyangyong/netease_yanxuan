@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBox from '../../common/searchBox/SearchBox';
 import Scroll from '../../common/scroll/Scroll';
-import Loading from '../../common/loading/loading';
+import Loading from '../../common/loading/Loading';
 import { getCateList } from '../../api/index';
 import './cate.styl'
 
@@ -30,7 +30,7 @@ class Cate extends Component {
   }
 
   getData = (id, index) => {
-    const { cateList, singleCateList, mid } = this.state;
+    const { cateList } = this.state;
     this.setState({
       mid: id,
       singleCateList: cateList[index]
