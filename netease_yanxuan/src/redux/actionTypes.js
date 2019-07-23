@@ -1,3 +1,3 @@
 export const ADDCARTLIST = 'ADDCARTLIST';
 export const ADD_SEARCHHISTORY = 'ADD_SEARCHHISTORY'; // 添加搜索历史
-export const DELETE_SEARCHHISTORY = 'DELETE_SEARCHHISTORY'; // 删除搜索历史
+export const CLEAR_SEARCHHISTORY = 'CLEAR_SEARCHHISTORY'; // 清除搜索历史

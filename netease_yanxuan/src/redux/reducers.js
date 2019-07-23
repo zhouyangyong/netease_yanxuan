@@ -8,14 +8,10 @@ const initialState = {
 function searchHistory(searchHistory = initialState.searchHistory, action) {
   switch(action.type) {
     case ActionType.ADD_SEARCHHISTORY:
-      return [
-        action.searchHistory,
-        ...searchHistory
-      ]
-    case ActionType.DELETE_SEARCHHISTORY:
-      return {
-        searchHistory: []
-      }
+      let newState = [action.searchHistory, ...searchHistory.slice(0)]
+      return newState
+    case ActionType.CLEAR_SEARCHHISTORY:
+      return searchHistory.splice(searchHistory.length)
     default:
       return searchHistory
   }

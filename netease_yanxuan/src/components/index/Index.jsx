@@ -66,7 +66,7 @@ class Index extends Component {
               <span className="item">全球特色</span>
             </NavLink>
           </div>
-          <div className="tabAlter" style={{ display: show ? '' : 'none' }}>全部频道</div>
+          {/* <div className="tabAlter" style={{ display: show ? '' : 'none' }}>全部频道</div> */}
           <div className="toggleWrap">
             <div className="linear"></div>
             <div className="toggle" onClick={this.toggleWarp}>
@@ -74,7 +74,7 @@ class Index extends Component {
             </div>
           </div>
         </div>
-        <div className="mask" onClick={this.toggleWarp} style={{ display: show ? '' : 'none' }}></div>
+        {/* <div className="mask" onClick={this.toggleWarp} style={{ display: show ? '' : 'none' }}></div> */}
         <div className="header-tab-view">
           <Switch>
             <Route path="/index/recommend" component={Recommend} />

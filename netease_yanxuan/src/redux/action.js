@@ -7,9 +7,8 @@ export function add_searchHistory(searchHistory) {
   }
 }
 
-export function delete_searchHistory(searchHistory) {
+export function clear_searchHistory() {
   return {
-    type: ActionTypes.DELETE_SEARCHHISTORY,
-    searchHistory
+    type: ActionTypes.CLEAR_SEARCHHISTORY
   }
 }

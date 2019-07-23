@@ -48,7 +48,6 @@ export function getGoodDetail(id) {
   return new Promise((resolve, reject) => {
     axios.get('https://www.easy-mock.com/mock/5ca45811c4e9a575b66b62c0/example/netease_yanxuan/detail')
     .then(response => {
-      console.log(response)
       let result = response.data.data.goodDetail.find(item => item.id == id)
       resolve(result)
     },err => {
@@ -59,3 +58,20 @@ export function getGoodDetail(id) {
     })
   })
 }
+
+
+export function getHotSearch() {
+  return new Promise((resolve, reject) => {
+    axios.get('https://www.easy-mock.com/mock/5ca45811c4e9a575b66b62c0/example/netease_yanxuan/detail')
+    .then(response => {
+      let result = response.data.data.goodDetail
+      resolve(result)
+    },err => {
+      reject(err)
+    })
+    .catch(error => {
+      reject(error)
+    })
+  })
+}
+
