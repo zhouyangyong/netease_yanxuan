@@ -4,7 +4,9 @@ import Stepper from '../stepper/Stepper'
 import './goodOptions.styl'
 class GoodOptions extends Component {
   state = {
-    colorIndex: -1
+    colorIndex: -1,
+    currentCount: 1,
+    count: 1
   }
   changeColor = (i) => {
     this.setState({
@@ -12,7 +14,30 @@ class GoodOptions extends Component {
     })
   }
   confirmOptions = () => {
-    this.props.getSelect(this.props.color[this.state.colorIndex])
+    const props = this.props
+    const { colorIndex, count } = this.state
+    if (this.props.color[this.state.colorIndex]) {
+      this.props.getSelect(this.props.color[this.state.colorIndex])
+      let goodInfo = {
+        price: props.price,
+        id: props.id,
+        name: props.name,
+        img: props.img,
+        simpleDesc: props.simpleDesc,
+        color: props.color[colorIndex].value,
+        num: count,
+        selected: true
+      }
+      props.dispatchToCart(goodInfo)
+      // Toast.success('加入购物车成功!', 2)
+    } else {
+      // Toast.fail('请选择规格', 1.5)
+    }
+  }
+  getCurrentCount = (count) => {
+    this.setState({
+      currentCount: count
+    })
   }
   render() {
     const { colorIndex } = this.state
@@ -52,7 +77,7 @@ class GoodOptions extends Component {
           </div>
           <div className="options-count">
             <div className="options-countText">数量</div>
-            <Stepper goodCount="2" />
+            <Stepper currentCount={this.getCurrentCount} />
           </div>
         </div>
         <div className="confirmOptions" onClick={this.confirmOptions}>确定</div>

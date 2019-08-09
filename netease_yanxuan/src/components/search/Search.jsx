@@ -65,14 +65,14 @@ class Search extends Component {
           <div className="input-box">
             <i className="icon-search" ></i>
             <input className="input" ref="ipt" onKeyUp={this.keyUp} onChange={e => this.handelChange(e)} value={this.state.inputVal} type="text" placeholder="请输入商品名称" />
-            <i className="clearIpt" onClick={() => this.handleClear()} style={{ display: inputVal === '' ? 'none' : '' }}></i>
+            <i className="clearIpt" onClick={this.handleClear} style={{ display: inputVal === '' ? 'none' : '' }}></i>
           </div>
-          <span className="cancel" onClick={() => this.handleBack()}>取消</span>
+          <span className="cancel" onClick={this.handleBack}>取消</span>
         </div>
         <div className="searchHistory" style={{ display: searchHistory.length === 0 ? 'none' : '' }}>
           <div className="header">
             <div className="tit">历史记录</div>
-            <i className="del-icon" onClick={() => this.clearSearchHistory()}></i>
+            <i className="del-icon" onClick={this.clearSearchHistory}></i>
           </div>
           <div className="list">
             {

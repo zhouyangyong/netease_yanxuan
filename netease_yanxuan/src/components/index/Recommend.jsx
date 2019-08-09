@@ -28,7 +28,6 @@ class Recommend extends Component {
 
     getData()
       .then(res => {
-        // console.log(res.data.newItemList);
         this.setState({
           policyDescList: res.data.policyDescList,
           kingKongList: res.data.kingKongModule.kingKongList,
@@ -164,7 +163,6 @@ class Recommend extends Component {
             </div>
             <div className="blank"></div>
           </div>
-          {/* <Route path={`${match.url}/:id`} component={Album} /> */}
         </Scroll>
       </div>
     );

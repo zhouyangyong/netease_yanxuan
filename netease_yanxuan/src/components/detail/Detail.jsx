@@ -1,20 +1,23 @@
-import React, { Component } from 'react'
-import Scroll from '../../common/scroll/Scroll'
+import React, { Component } from 'react';
+import Scroll from '../../common/scroll/Scroll';
 import { cart, customServer, back } from '../../assets/img/detailImg';
-import { getGoodDetail } from '../../api/index'
-import './detail.styl'
+import { getGoodDetail } from '../../api/index';
+import GoodOptions from '../../common/goodOptions/GoodOptions';
+import './detail.styl';
 import Swiper from 'swiper/dist/js/swiper.js';
 import 'swiper/dist/css/swiper.min.css';
 class Detail extends Component {
   state = {
     allDetail: {},
     refreshScroll: false,
-    flag: false
+    color: '',
+    flag: false,
+    show: false
   }
   componentDidMount() {
     getGoodDetail(this.props.match.params.id)
       .then(res => {
-        console.log('res', res)
+        console.log('res', res);
         this.setState({
           allDetail: res,
           flag: true
@@ -51,7 +54,6 @@ class Detail extends Component {
   }
   renderSwiperItem() {
     const { allDetail, flag } = this.state
-    console.log('allDetail.picList', allDetail.picList)
     return (
       <>
         {
@@ -68,8 +70,29 @@ class Detail extends Component {
     )
   }
 
+  showGoodOptions = () => {
+    this.setState({
+      show: true
+    })
+  }
+  hiddenGoodOption = () => {
+    this.setState({
+      show: false
+    })
+  }
+  getSelect = (selectedColor) => {
+    this.setState({
+      color: selectedColor.val,
+      show: false
+    })
+  }
+  dispatchToCart = (goodInfo) => {
+    this.props.addCartList(goodInfo)
+  }
   render() {
-    const { allDetail, refreshScroll, flag } = this.state
+    const { allDetail, refreshScroll, flag, show } = this.state
+    console.log(allDetail.picList);
+    console.log('aa', this.props);
     return (
       <div className="detailContainer">
         <Scroll refresh={refreshScroll}>
@@ -127,6 +150,23 @@ class Detail extends Component {
           <img src={back} alt="" />
           <span>返回</span>
         </div>
+        <div className="good-option" style={{ display: show ? '' : 'none' }}>
+          <div className="mask" onClick={this.hiddenGoodOption}></div>
+          <div className="good-option-container">
+            <Scroll refresh={refreshScroll}>
+              <GoodOptions
+                img={allDetail.picList}
+                name={allDetail.name}
+                simpleDesc={allDetail.simpleDesc}
+                price={allDetail.price}
+                colorOrOther={allDetail.colorOrOther}
+                color={allDetail.color}
+                getSelect={this.getSelect}
+                dispatchToCart={this.dispatchToCart}
+              />
+            </Scroll>
+          </div>
+        </div>
         <div className="detail-footer">
           <div className="customerServer">
             <img src={customServer} alt="" />
@@ -137,11 +177,10 @@ class Detail extends Component {
           <div className="promptToPurchase">
             立即购买
           </div>
-          <div className="addToCart">
+          <div className="addToCart" onClick={this.showGoodOptions}>
             加入购物车
           </div>
         </div>
-
       </div>
     );
   }

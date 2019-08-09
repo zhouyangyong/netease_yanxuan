@@ -2,8 +2,31 @@ import React, { Component } from 'react';
 import GoodInCart from '../../common/goodInCart/GoodInCart'
 import './cart.styl'
 class Cart extends Component {
-  state = {  }
+  state = {}
+  renderCartList = () => {
+    const { cartList } = this.props;
+    return (
+      <>
+        {
+          cartList && cartList.map((item, index) => {
+            console.log('pic', item);
+            return (
+              <div key={index}>
+                <GoodInCart 
+                  img={item.img[0]}
+                  name={item.name}
+                  color={item.color}
+                  price={item.price}
+                />
+              </div>
+            )
+          })
+        }
+      </>
+    )
+  }
   render() { 
+    console.log(this.props);
     return (  
       <div className="cartContainer">
         <div className="cartHeader">购物车</div>
@@ -11,8 +34,9 @@ class Cart extends Component {
           <span>你关心的商品降价啦~</span>
           <span>></span>
         </div>
-        <GoodInCart />
-        <GoodInCart />
+        <div className="cartList">  
+          {this.renderCartList()}
+        </div>
         <div className="cartOperation">
           <div className="selectAll">
             <img src={require('../../assets/check_box.png')} alt=""/>

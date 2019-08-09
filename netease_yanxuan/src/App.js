@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from 'react
 import Index from './components/index/Index';
 import Cate from './components/cate/Cate';
 import Topic from './components/topic/Topic';
-import Cart from './components/cart/Cart';
+import Cart from './container/Cart';
 import Mine from './components/mine/Mine';
 import Search from './container/Search';
-import Detail from './components/detail/Detail';
+import Detail from './container/Detail';
 import * as tabIcon from './assets/img/indexImg';
 import './App.styl';
 
